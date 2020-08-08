@@ -13,12 +13,12 @@
 	Departure City : ${reservation.flight.departureCity} </br>
 	Arrival City : ${reservation.flight.arrivalCity} </br> 
 	Date of Departure : ${reservation.flight.dateOfDeparture} </br>
-
+--%>
 	<h2>Passenger Details</h2>
-	First Name : ${reservation.passenger.firstName} </br>
-	Last Name : ${reservation.passenger.lastName}  </br>
-	Email : ${reservation.passenger.email} </br>
-	Phone : ${reservation.passenger.phone} </br> --%>
+	First Name : ${passenger.firstName} </br>
+	Last Name : ${passenger.lastName}  </br>
+	Email : ${passenger.email} </br>
+	Phone : ${passenger.phone} </br> 
 	
 	<h2>Flight Check In Details</h2>
 	CheckIn Status : ${reservation.checkedIn}</br>
