@@ -24,5 +24,5 @@ public class ReservationRestClientImpl implements ReservationRestClient{
 		Reservation reservation = restTemplate.postForObject(RESERVATION_REST_URL, request, Reservation.class);
 		return reservation;
 	}
-
+	
 }

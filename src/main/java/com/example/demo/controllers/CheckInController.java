@@ -6,8 +6,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.demo.dto.Passenger;
 import com.example.demo.dto.Reservation;
 import com.example.demo.dto.ReservationUpdateRequest;
+import com.example.demo.integration.PassengerRestClient;
 import com.example.demo.integration.ReservationRestClient;
 
 @Controller
@@ -15,6 +17,9 @@ public class CheckInController {
 	
 	@Autowired
 	ReservationRestClient restClient;
+	
+	@Autowired
+	PassengerRestClient passengerRestClient;
 
 	@RequestMapping("showStartCheckIn")
 	public String showStartCheckIn() {
@@ -24,7 +29,9 @@ public class CheckInController {
 	@RequestMapping("startCheckIn")
 	public String startCheckIn(@RequestParam("reservationId") long reservationId, ModelMap modelMap){
 		Reservation reservation = restClient.findReservation(reservationId);
+		Passenger passengers = passengerRestClient.findPassengers(reservationId);
 		modelMap.addAttribute("reservation",reservation);
+		modelMap.addAttribute("passenger",passengers);
 		return "displayReservationDetails";
 	}
 	
